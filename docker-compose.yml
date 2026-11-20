@@ -1,0 +1,24 @@
+
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: caso6_expediciones
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin:5.2
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - "8090:80"
+    depends_on:
+      - db
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
