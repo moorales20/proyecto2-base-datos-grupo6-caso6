@@ -3,3 +3,4 @@ SQLAlchemy==2.0.36
 PyMySQL==1.1.1
 pandas==2.2.3
 cryptography
+bcrypt==4.2.1
